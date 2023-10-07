@@ -1,0 +1,22 @@
+"use client"
+
+const guestRoutes = [
+	{
+		icon: Layout,
+		label: "Dashboard",
+		href: "/",
+	},
+	{
+		icon: Compass,
+		label: "Browse",
+		href: "/",
+	},
+]
+
+export const SidebarRoutes = () => {
+	return (
+		<div className="flex flex-col w-full">
+			Routes!
+		</div>
+	)
+}
