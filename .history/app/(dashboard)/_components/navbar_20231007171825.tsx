@@ -1,3 +1,0 @@
-export const Na = (params) => {
-	
-}
