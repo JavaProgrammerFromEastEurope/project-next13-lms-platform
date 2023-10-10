@@ -23,7 +23,7 @@ model Course {
 
   chapters    Chapter[]
   attachments Attachment[]
-  ourchases   Purchase[]
+  purchases   Purchase[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -33,9 +33,9 @@ model Course {
 }
 
 model Category {
-  id     String   @id @default(uuid())
-  name   String   @unique
-  course Course[]
+  id      String   @id @default(uuid())
+  name    String   @unique
+  courses Course[]
 }
 
 model Attachment {
@@ -43,8 +43,8 @@ model Attachment {
   name String
   url  String @db.Text
 
-  courseId String?
-  course   Course? @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  courseId String
+  course   Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -66,7 +66,7 @@ model Chapter {
   courseId String
   course   Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
 
-  userProgres UserProgress[]
+  userProgress UserProgress[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -114,9 +114,9 @@ model Purchase {
 }
 
 model StripeCustomer {
-  id             String @id @default(uuid())
-  userId         String @unique
-  stripeCustomer String @unique
+  id               String @id @default(uuid())
+  userId           String @unique
+  stripeCustomerId String @unique
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
