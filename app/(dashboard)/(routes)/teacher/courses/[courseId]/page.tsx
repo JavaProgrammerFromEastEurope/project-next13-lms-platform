@@ -1,9 +1,13 @@
-import { IconBadge } from '@/components/icon-badge';
-import { db } from '@/lib/db'
 import { auth } from '@clerk/nextjs';
-import { LayoutDashboard } from 'lucide-react';
 import { redirect } from 'next/navigation';
+import { CircleDollarSign, File, LayoutDashboard, ListChecks } from 'lucide-react';
+
+import { db } from '@/lib/db'
+import { IconBadge } from '@/components/icon-badge';
+import { Banner } from "@/components/banner";
+
 import { TitleForm } from './_components/title-form';
+import { DescriptionForm } from './_components/description-form';
 
 const CourseIdPage = async ({
 	params
@@ -64,7 +68,7 @@ const CourseIdPage = async ({
 						initialData={course}
 						courseId={course.id}
 					/>
-					<TitleForm
+					<DescriptionForm
 						initialData={course}
 						courseId={course.id}
 					/>
