@@ -12,6 +12,7 @@ import { ImageForm } from "./_components/image-form";
 import { CategoryForm } from "./_components/category-form";
 import { PriceForm } from "./_components/price-form";
 import { AttachmentForm } from "./_components/attachment-form";
+import { ChaptersForm } from "./_components/chapters-form";
 // import { ChaptersForm } from "./_components/chapters-form";
 // import { Actions } from "./_components/actions";
 
@@ -131,10 +132,10 @@ const CourseIdPage = async ({
 									Course chapters
 								</h2>
 							</div>
-							{/* <ChaptersForm
+							<ChaptersForm
 								initialData={course}
 								courseId={course.id}
-							/> */}
+							/>
 						</div>
 						<div>
 							<div className="flex items-center gap-x-2">
