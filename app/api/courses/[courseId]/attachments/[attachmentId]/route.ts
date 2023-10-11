@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 
 export async function DELETE(
-	req: Response,
+	req: Request,
 	{ params }: { params: { courseId: string, attachmentId: string } }
 ) {
 	try {
@@ -27,14 +27,15 @@ export async function DELETE(
 
 		const attachment = await db.attachment.delete({
 			where: {
-				id: params.attachmentId,
 				courseId: params.courseId,
+				id: params.attachmentId,
 			}
 		});
-		
+
 		return NextResponse.json(attachment);
 	} catch (error) {
 		console.log("ATTACHMENT_ID", error);
 		return new NextResponse("Internal Error", { status: 500 });
 	}
 }
+
